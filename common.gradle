@@ -1,0 +1,91 @@
+apply plugin: 'com.android.application'
+apply plugin: 'org.jetbrains.kotlin.android'
+
+def pkgName = "eu.kanade.tachiyomi.animeextension.${project.parent.name}.${project.name}"
+def libVersion = project.ext.find("libVersion") ?: "16"
+def nsfwValue = project.ext.find("isNsfw") ?: false
+def keystoreFile = rootProject.file("signingkey.jks")
+
+android {
+    namespace pkgName
+    compileSdk 34
+
+    sourceSets {
+        main {
+            manifest.srcFile "AndroidManifest.xml"
+            java.srcDirs = ["src"]
+            kotlin.srcDirs = ["src"]
+            res.srcDirs = ["res"]
+            assets.srcDirs = ["assets"]
+        }
+    }
+
+    defaultConfig {
+        applicationId pkgName
+        minSdk 24
+        targetSdk 34
+        versionCode extVersionCode
+        versionName "$libVersion.$extVersionCode"
+
+        manifestPlaceholders = [
+                appName       : "Aniyomi: $extName",
+                extName       : extName,
+                author        : project.ext.find("extAuthor") ?: "akrab",
+                extClass      : extClass,
+                nsfw          : nsfwValue ? 1 : 0,
+                contentWarning: nsfwValue ? 2 : 0,
+                extensionLib  : libVersion,
+        ]
+
+        base {
+            archivesName = "aniyomi-${project.parent.name}.${project.name}-v$versionName"
+        }
+    }
+
+    signingConfigs {
+        release {
+            if (keystoreFile.exists()) {
+                storeFile keystoreFile
+                storePassword System.getenv("KEY_STORE_PASSWORD") ?: "android"
+                keyAlias System.getenv("ALIAS") ?: "key"
+                keyPassword System.getenv("KEY_PASSWORD") ?: "android"
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            if (keystoreFile.exists()) {
+                signingConfig signingConfigs.release
+            }
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    kotlinOptions {
+        jvmTarget = "17"
+    }
+
+    lint {
+        checkReleaseBuilds = false
+        abortOnError = false
+    }
+
+    packaging {
+        resources.excludes += "kotlin-tooling-metadata.json"
+        resources.excludes += "META-INF/*.kotlin_module"
+        resources.excludes += "META-INF/AL2.0"
+        resources.excludes += "META-INF/LGPL2.1"
+    }
+}
+
+dependencies {
+    compileOnly "com.github.aniyomiorg:extensions-lib:v16"
+    compileOnly "com.squareup.okhttp3:okhttp:4.12.0"
+    compileOnly "org.jsoup:jsoup:1.17.2"
+}
