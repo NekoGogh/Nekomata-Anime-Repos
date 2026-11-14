@@ -97,6 +97,25 @@ base64 -w0 signingkey.jks                        # SIGNING_KEY secret value
 
 `signingkey.jks` is ignored by git. Never commit it.
 
+## Publish to GitHub
+
+1. Create a repository (for example `anime-extensions-repo`).
+2. If your GitHub user or repository name differs from `akrab` /
+   `anime-extensions-repo`, update `repo.json` → `meta.website` and the raw /
+   jsDelivr URLs shown above.
+3. Add the `SIGNING_KEY` secret (see [Signing](#signing)). A keystore was
+   generated locally at `signingkey.jks` during setup; it is ignored by git but
+   you can use it for the secret.
+4. Push:
+
+```bash
+git remote add origin git@github.com:<USER>/<REPO>.git
+git push -u origin main
+```
+
+The first Actions run builds the APKs, fills `apk/` and `index.min.json`, and
+commits them back to `main`.
+
 ## Repository layout
 
 ```
