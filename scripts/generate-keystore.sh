@@ -39,7 +39,7 @@ echo "Key password:   $KEY_PASSWORD"
 echo
 echo "Fingerprint (add to repo.json -> meta.signingKeyFingerprint):"
 keytool -list -v -keystore signingkey.jks -storepass "$STORE_PASSWORD" \
-    | awk '/SHA256:/ { print tolower($2); exit }'
+    | awk '/SHA256:/ { gsub(":", "", $2); print tolower($2); exit }'
 echo
 echo "Base64 for the SIGNING_KEY secret:"
 base64 -w0 signingkey.jks

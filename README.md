@@ -91,7 +91,7 @@ If `signingkey.jks` already exists, print the values needed for the secret and
 
 ```bash
 keytool -list -v -keystore signingkey.jks -storepass "${KEY_STORE_PASSWORD:-android}" \
-  | awk '/SHA256:/ { print tolower($2); exit }'   # fingerprint
+  | awk '/SHA256:/ { gsub(":", "", $2); print tolower($2); exit }'   # fingerprint
 base64 -w0 signingkey.jks                        # SIGNING_KEY secret value
 ```
 
