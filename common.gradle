@@ -30,7 +30,7 @@ android {
         manifestPlaceholders = [
                 appName       : "Aniyomi: $extName",
                 extName       : extName,
-                author        : project.ext.find("extAuthor") ?: "akrab",
+                author        : project.ext.find("extAuthor") ?: "NekoGogh",
                 extClass      : extClass,
                 nsfw          : nsfwValue ? 1 : 0,
                 contentWarning: nsfwValue ? 2 : 0,

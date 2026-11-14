@@ -58,7 +58,7 @@ jobs:
               -validity 10000 \
               -storepass android \
               -keypass android \
-              -dname "CN=Anime Extensions, OU=Extensions, O=Akrab, C=US"
+              -dname "CN=Anime Extensions, OU=Extensions, O=NekoGogh, C=US"
           fi
 
       - name: Build release APKs

@@ -15,7 +15,7 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "anime-extensions-repo"
+rootProject.name = "Nekomata-Anime-Repo"
 
 /**
  * Load every extension module found under src/<lang>/<module>.

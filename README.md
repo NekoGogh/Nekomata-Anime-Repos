@@ -1,4 +1,4 @@
-# Akrab Anime Extensions
+# Nekomata Anime Extensions
 
 A small, self-contained [Aniyomi](https://github.com/aniyomiorg/aniyomi) / AniZen
 extension repository with Spanish-language anime sources.
@@ -28,13 +28,13 @@ together with the generated `index.min.json`.
 3. Add this URL:
 
 ```
-https://raw.githubusercontent.com/akrab/anime-extensions-repo/main/index.min.json
+https://raw.githubusercontent.com/NekoGogh/Nekomata-Anime-Repo/main/index.min.json
 ```
 
 A jsDelivr mirror is also available:
 
 ```
-https://cdn.jsdelivr.net/gh/akrab/anime-extensions-repo@main/index.min.json
+https://cdn.jsdelivr.net/gh/NekoGogh/Nekomata-Anime-Repo@main/index.min.json
 ```
 
 4. Open **Browse → Extensions**, refresh, and install the extensions you want.
@@ -99,9 +99,9 @@ base64 -w0 signingkey.jks                        # SIGNING_KEY secret value
 
 ## Publish to GitHub
 
-1. Create a repository (for example `anime-extensions-repo`).
-2. If your GitHub user or repository name differs from `akrab` /
-   `anime-extensions-repo`, update `repo.json` → `meta.website` and the raw /
+1. Create a repository (for example `Nekomata-Anime-Repo`).
+2. If your GitHub user or repository name differs from `NekoGogh` /
+   `Nekomata-Anime-Repo`, update `repo.json` → `meta.website` and the raw /
    jsDelivr URLs shown above.
 3. Add the `SIGNING_KEY` secret (see [Signing](#signing)). A keystore was
    generated locally at `signingkey.jks` during setup; it is ignored by git but

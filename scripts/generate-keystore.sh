@@ -29,7 +29,7 @@ keytool -genkeypair \
     -validity 10000 \
     -storepass "$STORE_PASSWORD" \
     -keypass "$KEY_PASSWORD" \
-    -dname "CN=Anime Extensions, OU=Extensions, O=Akrab, C=US"
+    -dname "CN=Anime Extensions, OU=Extensions, O=NekoGogh, C=US"
 
 echo
 echo "Created signingkey.jks"
