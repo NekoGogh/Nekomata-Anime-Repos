@@ -29,7 +29,7 @@ together with the generated `index.min.json`.
 3. Add this URL:
 
 ```
-https://raw.githubusercontent.com/NekoGogh/Nekomata-Anime-Repo/main/index.min.json
+https://raw.githubusercontent.com/NekoGogh/Nekomata-Anime-Repos/main/index.min.json
 ```
 
 A jsDelivr mirror is also available:
