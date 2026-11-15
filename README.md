@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Nekomata Anime Extensions
 
 A small, self-contained [Aniyomi](https://github.com/aniyomiorg/aniyomi) / AniZen
@@ -188,3 +189,7 @@ This project is unofficial and is not affiliated with Aniyomi, AniZen, or any of
 the websites listed above. It only provides scrapers; all content is hosted by
 the respective third-party sites. Use it at your own risk and respect the laws
 of your country.
+=======
+# Nekomata-Anime-Repo
+A personal, lightweight extension repository for Animetail and Mihon, hosting customized video streaming sources including Jkanime, Animev1, and alternative catalogs.
+>>>>>>> 20f65fa210d3b9f07f87a6b71b70bd0596a43596
